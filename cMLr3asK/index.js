@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
         case ActionTypes.INCREMENT:
             return { ...state, count: state.count + 1 };
         case ActionTypes.DECREMENT:
-            return { ...state, count: state.count - 1 };
+            return { ...state, count: Math.max(0, state.count - 1) }; // Prevent count from going below zero
         case ActionTypes.RESET:
             return { ...state, count: 0 };
         default:
